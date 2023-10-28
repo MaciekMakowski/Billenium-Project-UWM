@@ -1,1 +1,1 @@
-ALTER TABLE public.checkbox RENAME TO checkboxes;
+ALTER TABLE kanbandb.checkbox RENAME TO checkboxes;

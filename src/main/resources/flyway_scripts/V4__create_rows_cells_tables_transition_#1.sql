@@ -1,10 +1,10 @@
-create table if not exists public.rows (
+create table if not exists kanbandb.rows (
             id BIGINT NOT NULL DEFAULT nextval('id_seq') PRIMARY KEY,
             title VARCHAR(45) NOT NULL,
             position INT NOT NULL
 );
 
-create table if not exists public.cells (
+create table if not exists kanbandb.cells (
             id BIGINT NOT NULL DEFAULT nextval('id_seq') PRIMARY KEY,
             column_id BIGINT NOT NULL,
             row_id BIGINT NOT NULL,

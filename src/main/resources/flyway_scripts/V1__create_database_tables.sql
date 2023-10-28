@@ -1,6 +1,6 @@
-create sequence if not exists public.id_seq as bigint start with 1000;
+create sequence if not exists kanbandb.id_seq as bigint start with 1000;
 
-create table if not exists public.users (
+create table if not exists kanbandb.users (
     id BIGINT NOT NULL DEFAULT nextval('id_seq') PRIMARY KEY,
     email VARCHAR(45) NOT NULL,
     password VARCHAR(255) NOT NULL,
@@ -8,14 +8,14 @@ create table if not exists public.users (
     last_name VARCHAR(45) NOT NULL
     );
 
-create table if not exists public.boards (
+create table if not exists kanbandb.boards (
     id BIGINT NOT NULL DEFAULT nextval('id_seq') PRIMARY KEY,
     title VARCHAR(45) NOT NULL,
     creator_id BIGINT NOT NULL,
     CONSTRAINT fk_user FOREIGN KEY (creator_id) REFERENCES users(id)
     );
 
-create table if not exists public.columns (
+create table if not exists kanbandb.columns (
     id BIGINT NOT NULL DEFAULT nextval('id_seq') PRIMARY KEY,
     title VARCHAR(45) NOT NULL,
     "limit" INT NOT NULL,
@@ -24,7 +24,7 @@ create table if not exists public.columns (
     CONSTRAINT fk_board FOREIGN KEY (board_id) REFERENCES boards(id)
     );
 
-create table if not exists public.cards (
+create table if not exists kanbandb.cards (
     id BIGINT NOT NULL DEFAULT nextval('id_seq') PRIMARY KEY,
     title VARCHAR(45) NOT NULL,
     description TEXT,
@@ -32,7 +32,7 @@ create table if not exists public.cards (
     CONSTRAINT fk_column FOREIGN KEY (column_id) REFERENCES columns(id)
     );
 
-create table public.users_boards (
+create table kanbandb.users_boards (
     user_id BIGINT NOT NULL,
     board_id BIGINT NOT NULL,
     PRIMARY KEY (user_id, board_id),
@@ -40,7 +40,7 @@ create table public.users_boards (
     CONSTRAINT fk_board FOREIGN KEY (board_id) references boards(id)
 );
 
-create table public.users_cards (
+create table kanbandb.users_cards (
     user_id BIGINT NOT NULL,
     card_id BIGINT NOT NULL,
     PRIMARY KEY (user_id, card_id),

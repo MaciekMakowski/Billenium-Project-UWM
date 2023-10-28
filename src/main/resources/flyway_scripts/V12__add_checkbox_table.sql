@@ -1,4 +1,4 @@
-create table if not exists public.checkbox (
+create table if not exists kanbandb.checkbox (
     id BIGINT NOT NULL DEFAULT nextval('id_seq') PRIMARY KEY,
     title VARCHAR(45) NOT NULL,
     is_checked BOOLEAN NOT NULL,

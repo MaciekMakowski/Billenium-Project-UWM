@@ -6,7 +6,7 @@ import {handleClickVariant} from "@/services/utils/toastUtils/toastUtils";
 import {enqueueSnackbar} from "notistack";
 
 
-export const urlDomain = 'http://localhost:8080'
+export const urlDomain = 'https://kanbanapi-6u11.onrender.com'
 
 export function loadDefaultData(){
     return {

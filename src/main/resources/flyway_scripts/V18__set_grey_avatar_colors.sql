@@ -1,3 +1,3 @@
-update public.users u
+update kanbandb.users u
 set avatar_color = 'GREY'
 where u.avatar_color = '' or u.avatar_color is null;
