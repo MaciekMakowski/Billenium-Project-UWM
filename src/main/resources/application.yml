@@ -1,0 +1,30 @@
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+  info:
+    env:
+      enabled: true
+
+info:
+  application:
+    name: Clinic
+    description: Clinic App
+    author: MAGI
+    version: '@project.version@'
+spring:
+  profiles:
+    active: dev
+
+  datasource:
+    url: jdbc:postgresql://${PROD_DB_HOST}:${PROD_DB_PORT}/${PROD_DB_NAME}
+    username: ${PROD_DB_USERNAME}
+    password: ${PROD_DB_PASSWORD}
+    name: Clinic
+
+  sql:
+    init:
+      mode: always
+
+
